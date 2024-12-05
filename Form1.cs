@@ -15,13 +15,19 @@ namespace Music
     public partial class Form1 : Form
     {
         DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+        //private Timer timer;
+
         public Form1()
         {
             InitializeComponent();
-            splitContainer1.Dock = DockStyle.Fill;
-            axWindowsMediaPlayer1.uiMode = "none";
+            //splitContainer1.Dock = DockStyle.Fill;
+           // axWindowsMediaPlayer1.uiMode = "none";
             axWindowsMediaPlayer1.PlayStateChange += axWindowsMediaPlayer1_PlayStateChange;
-
+            //timer = new Timer();
+            //timer.Interval = 1000;
+           // timer.Tick += Timer_Tick;
+            //timer.Start();
+           // guna2TrackBar1.ValueChanged += guna2TrackBar1_ValueChanged;
         }
 
 
@@ -68,7 +74,7 @@ namespace Music
 
                 // Phát bài hát
                 axWindowsMediaPlayer1.URL = doublyLinkedList.Current.FilePath;
-               // textBox1.Text = doublyLinkedList.Current.FileName;
+                // textBox1.Text = doublyLinkedList.Current.FileName;
                 btnPlay.BackgroundImage = Properties.Resources.pauseIcon;
             }
 
@@ -76,25 +82,25 @@ namespace Music
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-           if (doublyLinkedList.Current != null)
-    {
-        // Di chuyển đến bài hát tiếp theo
-        doublyLinkedList.MoveNext();
+            if (doublyLinkedList.Current != null)
+            {
+                // Di chuyển đến bài hát tiếp theo
+                doublyLinkedList.MoveNext();
 
-        // Kiểm tra nếu đã đến bài hát cuối cùng
-        if (doublyLinkedList.Current == null)
-        {
-            // Nếu đã hết playlist, quay lại bài hát đầu tiên
-            doublyLinkedList.Current = doublyLinkedList.Head;
-        }
+                // Kiểm tra nếu đã đến bài hát cuối cùng
+                if (doublyLinkedList.Current == null)
+                {
+                    // Nếu đã hết playlist, quay lại bài hát đầu tiên
+                    doublyLinkedList.Current = doublyLinkedList.Head;
+                }
 
-        // Phát bài hát tiếp theo hoặc quay lại đầu tiên
-        if (doublyLinkedList.Current != null)
-        {
-            axWindowsMediaPlayer1.URL = doublyLinkedList.Current.FilePath;
-          //  textBox1.Text = doublyLinkedList.Current.FileName;
-        }
-    }
+                // Phát bài hát tiếp theo hoặc quay lại đầu tiên
+                if (doublyLinkedList.Current != null)
+                {
+                    axWindowsMediaPlayer1.URL = doublyLinkedList.Current.FilePath;
+                    //  textBox1.Text = doublyLinkedList.Current.FileName;
+                }
+            }
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
@@ -102,16 +108,16 @@ namespace Music
             if (doublyLinkedList.Current != null)
             {
                 doublyLinkedList.MovePrevious();
-            if (doublyLinkedList.Current == null)
+                if (doublyLinkedList.Current == null)
                 {
                     doublyLinkedList.Current = doublyLinkedList.Tail;
                 }
-            if (doublyLinkedList.Current != null)
-            {
-                axWindowsMediaPlayer1.URL = doublyLinkedList.Current.FilePath;
-             //  textBox1.Text = doublyLinkedList.Current.FileName;
+                if (doublyLinkedList.Current != null)
+                {
+                    axWindowsMediaPlayer1.URL = doublyLinkedList.Current.FilePath;
+                    //  textBox1.Text = doublyLinkedList.Current.FileName;
+                }
             }
-         }
         }
 
         private void btnRandom_Click(object sender, EventArgs e)
@@ -142,12 +148,14 @@ namespace Music
                 // Tạm dừng nhạc và đổi biểu tượng sang Play
                 axWindowsMediaPlayer1.Ctlcontrols.pause();
                 btnPlay.BackgroundImage = Properties.Resources.playIcon;
+                //timer.Stop();
             }
             else
             {
                 // Phát nhạc và đổi biểu tượng sang Pause
                 axWindowsMediaPlayer1.Ctlcontrols.play();
                 btnPlay.BackgroundImage = Properties.Resources.pauseIcon;
+                //timer.Start();
             }
             btnPlay.Refresh(); // Cập nhật giao diện
             isButtonClick = false; // Hoàn thành xử lý nút nhấn
@@ -169,7 +177,33 @@ namespace Music
             btnPlay.Refresh(); // Cập nhật giao diện
         }
 
+        //private void Timer_Tick(object sender, EventArgs e)
+        //{
+        //    if (axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPlaying)
+        //    {
+        //        // Cập nhật thanh trạng thái
+        //        // Lấy thời gian hiện tại và tổng thời gian của bài hát
+        //        double currentTime = axWindowsMediaPlayer1.Ctlcontrols.currentPosition;
+        //        double totalTime = axWindowsMediaPlayer1.currentMedia.duration;
+        //        if (totalTime > 0)
+        //        {
+        //            // Tính toán giá trị thanh tiến độ
+        //            int newValue = (int)((currentTime / totalTime) * guna2TrackBar1.Maximum);
 
+        //            // Đảm bảo giá trị không vượt quá giới hạn tối đa và tối thiểu
+        //            newValue = Math.Min(Math.Max(newValue, guna2TrackBar1.Minimum), guna2TrackBar1.Maximum);
 
+        //            // Cập nhật giá trị cho Guna2TrackBar
+        //            guna2TrackBar1.Value = newValue;
+        //        }
+        //    }
+        //}
+        //private void guna2TrackBar1_ValueChanged(object sender, EventArgs e)
+        //{
+        //    // Lấy giá trị của thanh tiến độ và tính toán vị trí bài hát mới
+        //    double totalTime = axWindowsMediaPlayer1.currentMedia.duration;
+        //    double newPosition = (guna2TrackBar1.Value / (double)guna2TrackBar1.Maximum) * totalTime;
+        //    axWindowsMediaPlayer1.Ctlcontrols.currentPosition = newPosition;
+        //}   
     }
 }

@@ -33,12 +33,11 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnPrevious = new System.Windows.Forms.Button();
-            this.btnPlay = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
             this.btnRandom = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnPlay = new System.Windows.Forms.Button();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -48,7 +47,6 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,6 +90,47 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnRandom
+            // 
+            this.btnRandom.Location = new System.Drawing.Point(371, -1);
+            this.btnRandom.Name = "btnRandom";
+            this.btnRandom.Size = new System.Drawing.Size(147, 53);
+            this.btnRandom.TabIndex = 5;
+            this.btnRandom.Text = "Random";
+            this.btnRandom.UseVisualStyleBackColor = true;
+            this.btnRandom.Click += new System.EventHandler(this.btnRandom_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(241, -1);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(134, 53);
+            this.btnNext.TabIndex = 4;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnPlay
+            // 
+            this.btnPlay.BackgroundImage = global::Music.Properties.Resources.playIcon;
+            this.btnPlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPlay.Location = new System.Drawing.Point(125, -1);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(119, 53);
+            this.btnPlay.TabIndex = 2;
+            this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Location = new System.Drawing.Point(0, -1);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(129, 53);
+            this.btnPrevious.TabIndex = 3;
+            this.btnPrevious.Text = "Prev";
+            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -105,64 +144,13 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.flowLayoutPanel1);
+            this.splitContainer2.Panel2.Controls.Add(this.btnNext);
+            this.splitContainer2.Panel2.Controls.Add(this.btnPrevious);
+            this.splitContainer2.Panel2.Controls.Add(this.btnPlay);
+            this.splitContainer2.Panel2.Controls.Add(this.btnRandom);
             this.splitContainer2.Size = new System.Drawing.Size(642, 450);
             this.splitContainer2.SplitterDistance = 303;
             this.splitContainer2.TabIndex = 6;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.Controls.Add(this.btnPrevious);
-            this.flowLayoutPanel1.Controls.Add(this.btnPlay);
-            this.flowLayoutPanel1.Controls.Add(this.btnNext);
-            this.flowLayoutPanel1.Controls.Add(this.btnRandom);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 102);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(642, 41);
-            this.flowLayoutPanel1.TabIndex = 6;
-            // 
-            // btnPrevious
-            // 
-            this.btnPrevious.Location = new System.Drawing.Point(3, 3);
-            this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(119, 35);
-            this.btnPrevious.TabIndex = 3;
-            this.btnPrevious.Text = "Prev";
-            this.btnPrevious.UseVisualStyleBackColor = true;
-            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
-            // 
-            // btnPlay
-            // 
-            this.btnPlay.BackgroundImage = global::Music.Properties.Resources.playIcon;
-            this.btnPlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPlay.Location = new System.Drawing.Point(128, 3);
-            this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(110, 35);
-            this.btnPlay.TabIndex = 2;
-            this.btnPlay.UseVisualStyleBackColor = true;
-            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.Location = new System.Drawing.Point(244, 3);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(126, 35);
-            this.btnNext.TabIndex = 4;
-            this.btnNext.Text = "Next";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnRandom
-            // 
-            this.btnRandom.Location = new System.Drawing.Point(376, 3);
-            this.btnRandom.Name = "btnRandom";
-            this.btnRandom.Size = new System.Drawing.Size(146, 35);
-            this.btnRandom.TabIndex = 5;
-            this.btnRandom.Text = "Random";
-            this.btnRandom.UseVisualStyleBackColor = true;
-            this.btnRandom.Click += new System.EventHandler(this.btnRandom_Click);
             // 
             // axWindowsMediaPlayer1
             // 
@@ -172,8 +160,7 @@
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(642, 303);
-            this.axWindowsMediaPlayer1.TabIndex = 0;
-            this.axWindowsMediaPlayer1.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.axWindowsMediaPlayer1_PlayStateChange);
+            this.axWindowsMediaPlayer1.TabIndex = 1;
             // 
             // Form1
             // 
@@ -189,10 +176,8 @@
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
-            this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
 
@@ -203,12 +188,11 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button btnRandom;
-        private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Button btnRandom;
         private System.Windows.Forms.Button btnPlay;
+        private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }
