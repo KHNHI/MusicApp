@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Music
@@ -21,13 +22,13 @@ namespace Music
         {
             InitializeComponent();
             //splitContainer1.Dock = DockStyle.Fill;
-           // axWindowsMediaPlayer1.uiMode = "none";
+            // axWindowsMediaPlayer1.uiMode = "none";
             axWindowsMediaPlayer1.PlayStateChange += axWindowsMediaPlayer1_PlayStateChange;
             //timer = new Timer();
             //timer.Interval = 1000;
-           // timer.Tick += Timer_Tick;
+            // timer.Tick += Timer_Tick;
             //timer.Start();
-           // guna2TrackBar1.ValueChanged += guna2TrackBar1_ValueChanged;
+            // guna2TrackBar1.ValueChanged += guna2TrackBar1_ValueChanged;
         }
 
 
@@ -177,33 +178,47 @@ namespace Music
             btnPlay.Refresh(); // Cập nhật giao diện
         }
 
-        //private void Timer_Tick(object sender, EventArgs e)
-        //{
-        //    if (axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPlaying)
-        //    {
-        //        // Cập nhật thanh trạng thái
-        //        // Lấy thời gian hiện tại và tổng thời gian của bài hát
-        //        double currentTime = axWindowsMediaPlayer1.Ctlcontrols.currentPosition;
-        //        double totalTime = axWindowsMediaPlayer1.currentMedia.duration;
-        //        if (totalTime > 0)
-        //        {
-        //            // Tính toán giá trị thanh tiến độ
-        //            int newValue = (int)((currentTime / totalTime) * guna2TrackBar1.Maximum);
+        private void btnRemoveSong_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex != -1)
+            {
+                int selectedIndex = listBox1.SelectedIndex;
 
-        //            // Đảm bảo giá trị không vượt quá giới hạn tối đa và tối thiểu
-        //            newValue = Math.Min(Math.Max(newValue, guna2TrackBar1.Minimum), guna2TrackBar1.Maximum);
+                // Xóa bài hát khỏi danh sách liên kết kép
+                doublyLinkedList.RemoveAt(selectedIndex);
 
-        //            // Cập nhật giá trị cho Guna2TrackBar
-        //            guna2TrackBar1.Value = newValue;
-        //        }
-        //    }
-        //}
-        //private void guna2TrackBar1_ValueChanged(object sender, EventArgs e)
-        //{
-        //    // Lấy giá trị của thanh tiến độ và tính toán vị trí bài hát mới
-        //    double totalTime = axWindowsMediaPlayer1.currentMedia.duration;
-        //    double newPosition = (guna2TrackBar1.Value / (double)guna2TrackBar1.Maximum) * totalTime;
-        //    axWindowsMediaPlayer1.Ctlcontrols.currentPosition = newPosition;
-        //}   
+                // Xóa bài hát khỏi ListBox
+                listBox1.Items.RemoveAt(selectedIndex);
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một bài hát để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string keyword = txtbSong.Text.Trim();
+            if (string.IsNullOrEmpty(keyword))
+            {
+                MessageBox.Show("Vui lòng nhập từ khóa để tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            SongNode result = doublyLinkedList.Search(keyword);
+
+            if (result != null)
+            {
+                // Nếu tìm thấy bài hát, chọn trong ListBox và hiển thị thông tin
+                int index = listBox1.Items.IndexOf(result.FileName); // Lấy chỉ số bài hát trong ListBox
+                listBox1.SelectedIndex = index; // Chọn bài hát
+                MessageBox.Show($"Đã tìm thấy bài hát: {result.FileName}", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy bài hát nào phù hợp.", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
+

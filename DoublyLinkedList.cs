@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 namespace Music
 {
     internal class DoublyLinkedList
@@ -50,5 +51,50 @@ namespace Music
                 Current = null;
             }
         }
+        public void RemoveAt(int index)
+        {
+            if (Head == null || index < 0) return;
+            SongNode current = Head;
+            int count = 0;
+
+            while (current != null)
+            {
+                if (count == index)
+                {
+                    if (current.Previous != null)
+                        current.Previous.Next = current.Next;
+
+                    if (current.Next != null)
+                        current.Next.Previous = current.Previous;
+
+                    if (current == Head)
+                        Head = current.Next;
+
+                    if (current == Tail)
+                        Tail = current.Previous;
+
+                    return;
+                }
+
+                current = current.Next;
+                count++;
+            }
+        }
+        public SongNode Search(string keyword)
+        {
+            SongNode current = Head; // Bắt đầu từ đầu danh sách
+            while (current != null)
+            {
+                // So sánh bằng cách chuyển về chữ thường
+                if (current.FileName.ToLower().Contains(keyword.ToLower()))
+                {
+                    return current; // Trả về Node tìm thấy
+                }
+                current = current.Next; // Di chuyển đến Node tiếp theo
+            }
+            return null; // Không tìm thấy
+        }
+
+
     }
 }
