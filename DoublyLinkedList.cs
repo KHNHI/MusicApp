@@ -11,6 +11,7 @@ namespace Music
         public SongNode Head { get; private set; } // Node đầu tiên
         public SongNode Tail { get; private set; } // Node cuối cùng
         public SongNode Current { get; set; }      // Node hiện tại
+        public int Count { get; private set; }
 
         public void AddSong(string filePath, string fileName)
         {
@@ -26,8 +27,15 @@ namespace Music
                 newNode.Previous = Tail;
                 Tail = newNode;
             }
+            Count++;
         }
-
+        public void Clear()
+        {
+            Head = null;
+            Tail = null;
+            Current = null;
+            Count = 0;
+        }
         public void MoveNext()
         {
             if (Current != null && Current.Next != null)

@@ -20,7 +20,9 @@ namespace Music
 
         public Form1()
         {
+
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
             //splitContainer1.Dock = DockStyle.Fill;
             // axWindowsMediaPlayer1.uiMode = "none";
             axWindowsMediaPlayer1.PlayStateChange += axWindowsMediaPlayer1_PlayStateChange;
