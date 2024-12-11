@@ -74,7 +74,7 @@
             // 
             // btnRemoveSong
             // 
-            this.btnRemoveSong.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnRemoveSong.BackColor = System.Drawing.Color.IndianRed;
             this.btnRemoveSong.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnRemoveSong.Location = new System.Drawing.Point(0, 358);
             this.btnRemoveSong.Name = "btnRemoveSong";
@@ -86,7 +86,7 @@
             // 
             // listBox1
             // 
-            this.listBox1.BackColor = System.Drawing.Color.SaddleBrown;
+            this.listBox1.BackColor = System.Drawing.Color.DarkGreen;
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -100,7 +100,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnAdd.BackColor = System.Drawing.Color.IndianRed;
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnAdd.Location = new System.Drawing.Point(0, 405);
             this.btnAdd.Name = "btnAdd";
@@ -124,7 +124,7 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.BackColor = System.Drawing.Color.DimGray;
+            this.splitContainer2.Panel2.BackColor = System.Drawing.Color.DarkRed;
             this.splitContainer2.Panel2.Controls.Add(this.btnSearch);
             this.splitContainer2.Panel2.Controls.Add(this.txtbSong);
             this.splitContainer2.Panel2.Controls.Add(this.btnNext);
@@ -147,12 +147,13 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(308, 95);
+            this.btnSearch.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.btnSearch.Location = new System.Drawing.Point(298, 92);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(114, 33);
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtbSong
@@ -164,43 +165,47 @@
             // 
             // btnNext
             // 
+            this.btnNext.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.btnNext.Location = new System.Drawing.Point(686, 1);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(134, 53);
             this.btnNext.TabIndex = 4;
             this.btnNext.Text = "Next";
-            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrevious
             // 
+            this.btnPrevious.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.btnPrevious.Location = new System.Drawing.Point(371, 3);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(129, 53);
             this.btnPrevious.TabIndex = 3;
             this.btnPrevious.Text = "Prev";
-            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.UseVisualStyleBackColor = false;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnPlay
             // 
+            this.btnPlay.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.btnPlay.BackgroundImage = global::Music.Properties.Resources.playIcon;
             this.btnPlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnPlay.Location = new System.Drawing.Point(530, 2);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(119, 53);
             this.btnPlay.TabIndex = 2;
-            this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.UseVisualStyleBackColor = false;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
             // btnRandom
             // 
-            this.btnRandom.Location = new System.Drawing.Point(860, 3);
+            this.btnRandom.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.btnRandom.Location = new System.Drawing.Point(886, 1);
             this.btnRandom.Name = "btnRandom";
-            this.btnRandom.Size = new System.Drawing.Size(139, 54);
+            this.btnRandom.Size = new System.Drawing.Size(137, 53);
             this.btnRandom.TabIndex = 5;
             this.btnRandom.Text = "Random";
-            this.btnRandom.UseVisualStyleBackColor = true;
+            this.btnRandom.UseVisualStyleBackColor = false;
             this.btnRandom.Click += new System.EventHandler(this.btnRandom_Click);
             // 
             // Form1
