@@ -42,6 +42,7 @@
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnPlay = new System.Windows.Forms.Button();
             this.btnRandom = new System.Windows.Forms.Button();
+            this.btnSwap = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -61,6 +62,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnSwap);
             this.splitContainer1.Panel1.Controls.Add(this.btnRemoveSong);
             this.splitContainer1.Panel1.Controls.Add(this.listBox1);
             this.splitContainer1.Panel1.Controls.Add(this.btnAdd);
@@ -68,17 +70,17 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1349, 450);
-            this.splitContainer1.SplitterDistance = 259;
+            this.splitContainer1.Size = new System.Drawing.Size(1449, 666);
+            this.splitContainer1.SplitterDistance = 278;
             this.splitContainer1.TabIndex = 0;
             // 
             // btnRemoveSong
             // 
             this.btnRemoveSong.BackColor = System.Drawing.Color.IndianRed;
             this.btnRemoveSong.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnRemoveSong.Location = new System.Drawing.Point(0, 358);
+            this.btnRemoveSong.Location = new System.Drawing.Point(0, 574);
             this.btnRemoveSong.Name = "btnRemoveSong";
-            this.btnRemoveSong.Size = new System.Drawing.Size(259, 47);
+            this.btnRemoveSong.Size = new System.Drawing.Size(278, 47);
             this.btnRemoveSong.TabIndex = 2;
             this.btnRemoveSong.Text = "Remove";
             this.btnRemoveSong.UseVisualStyleBackColor = false;
@@ -94,7 +96,8 @@
             this.listBox1.ItemHeight = 20;
             this.listBox1.Location = new System.Drawing.Point(0, 0);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(259, 405);
+            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBox1.Size = new System.Drawing.Size(278, 621);
             this.listBox1.TabIndex = 1;
             this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
             // 
@@ -102,9 +105,9 @@
             // 
             this.btnAdd.BackColor = System.Drawing.Color.IndianRed;
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnAdd.Location = new System.Drawing.Point(0, 405);
+            this.btnAdd.Location = new System.Drawing.Point(0, 621);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(259, 45);
+            this.btnAdd.Size = new System.Drawing.Size(278, 45);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseMnemonic = false;
@@ -131,8 +134,8 @@
             this.splitContainer2.Panel2.Controls.Add(this.btnPrevious);
             this.splitContainer2.Panel2.Controls.Add(this.btnPlay);
             this.splitContainer2.Panel2.Controls.Add(this.btnRandom);
-            this.splitContainer2.Size = new System.Drawing.Size(1086, 450);
-            this.splitContainer2.SplitterDistance = 250;
+            this.splitContainer2.Size = new System.Drawing.Size(1167, 666);
+            this.splitContainer2.SplitterDistance = 370;
             this.splitContainer2.TabIndex = 6;
             // 
             // axWindowsMediaPlayer1
@@ -142,15 +145,15 @@
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(0, 0);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(1086, 250);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(1167, 370);
             this.axWindowsMediaPlayer1.TabIndex = 1;
             // 
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.btnSearch.Location = new System.Drawing.Point(298, 92);
+            this.btnSearch.Location = new System.Drawing.Point(298, 95);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(114, 33);
+            this.btnSearch.Size = new System.Drawing.Size(91, 33);
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -166,7 +169,7 @@
             // btnNext
             // 
             this.btnNext.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.btnNext.Location = new System.Drawing.Point(686, 1);
+            this.btnNext.Location = new System.Drawing.Point(634, 1);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(134, 53);
             this.btnNext.TabIndex = 4;
@@ -177,7 +180,7 @@
             // btnPrevious
             // 
             this.btnPrevious.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.btnPrevious.Location = new System.Drawing.Point(371, 3);
+            this.btnPrevious.Location = new System.Drawing.Point(319, 3);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(129, 53);
             this.btnPrevious.TabIndex = 3;
@@ -190,7 +193,7 @@
             this.btnPlay.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.btnPlay.BackgroundImage = global::Music.Properties.Resources.playIcon;
             this.btnPlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPlay.Location = new System.Drawing.Point(530, 2);
+            this.btnPlay.Location = new System.Drawing.Point(478, 2);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(119, 53);
             this.btnPlay.TabIndex = 2;
@@ -200,7 +203,7 @@
             // btnRandom
             // 
             this.btnRandom.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.btnRandom.Location = new System.Drawing.Point(886, 1);
+            this.btnRandom.Location = new System.Drawing.Point(1027, 1);
             this.btnRandom.Name = "btnRandom";
             this.btnRandom.Size = new System.Drawing.Size(137, 53);
             this.btnRandom.TabIndex = 5;
@@ -208,14 +211,26 @@
             this.btnRandom.UseVisualStyleBackColor = false;
             this.btnRandom.Click += new System.EventHandler(this.btnRandom_Click);
             // 
+            // btnSwap
+            // 
+            this.btnSwap.BackColor = System.Drawing.Color.IndianRed;
+            this.btnSwap.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSwap.Location = new System.Drawing.Point(0, 527);
+            this.btnSwap.Name = "btnSwap";
+            this.btnSwap.Size = new System.Drawing.Size(278, 47);
+            this.btnSwap.TabIndex = 3;
+            this.btnSwap.Text = "Swap";
+            this.btnSwap.UseVisualStyleBackColor = false;
+            this.btnSwap.Click += new System.EventHandler(this.btnSwap_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1349, 450);
+            this.ClientSize = new System.Drawing.Size(1449, 666);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Muryy";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -244,6 +259,7 @@
         private System.Windows.Forms.Button btnRemoveSong;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtbSong;
+        private System.Windows.Forms.Button btnSwap;
     }
 }
 

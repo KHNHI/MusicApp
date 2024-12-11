@@ -9,13 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Music
 {
     public partial class Form1 : Form
     {
-        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+        private DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
         //private Timer timer;
 
         public Form1()
@@ -23,14 +24,7 @@ namespace Music
 
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
-            //splitContainer1.Dock = DockStyle.Fill;
-            // axWindowsMediaPlayer1.uiMode = "none";
             axWindowsMediaPlayer1.PlayStateChange += axWindowsMediaPlayer1_PlayStateChange;
-            //timer = new Timer();
-            //timer.Interval = 1000;
-            // timer.Tick += Timer_Tick;
-            //timer.Start();
-            // guna2TrackBar1.ValueChanged += guna2TrackBar1_ValueChanged;
         }
 
 
@@ -220,6 +214,37 @@ namespace Music
             {
                 MessageBox.Show("Không tìm thấy bài hát nào phù hợp.", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        
+        private void btnSwap_Click(object sender, EventArgs e)
+            {
+            // Kiểm tra xem có đúng 2 mục được chọn
+            if (listBox1.SelectedItems.Count != 2)
+            {
+                MessageBox.Show("Vui lòng chọn đúng 2 mục để hoán đổi!");
+                return;
+            }
+
+            // Lấy chỉ số của hai mục được chọn
+            int index1 = listBox1.SelectedIndices[0];
+            int index2 = listBox1.SelectedIndices[1];
+
+
+            // Gọi hàm Swap trên danh sách liên kết
+            doublyLinkedList.Swap(index1, index2);
+
+            // Hoán đổi vị trí của hai mục trong ListBox
+            string temp = listBox1.Items[index1].ToString();
+            listBox1.Items[index1] = listBox1.Items[index2];
+            listBox1.Items[index2] = temp;
+
+            // Đảm bảo rằng hai mục vẫn được chọn sau khi hoán đổi
+            listBox1.SelectedIndices.Clear();
+            listBox1.SelectedIndices.Add(index1);
+            listBox1.SelectedIndices.Add(index2);
+
+
         }
     }
 }

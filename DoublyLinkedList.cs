@@ -8,10 +8,12 @@ namespace Music
 {
     internal class DoublyLinkedList
     {
+        
         public SongNode Head { get; private set; } // Node đầu tiên
         public SongNode Tail { get; private set; } // Node cuối cùng
         public SongNode Current { get; set; }      // Node hiện tại
         public int Count { get; private set; }
+
 
         public void AddSong(string filePath, string fileName)
         {
@@ -29,13 +31,7 @@ namespace Music
             }
             Count++;
         }
-        public void Clear()
-        {
-            Head = null;
-            Tail = null;
-            Current = null;
-            Count = 0;
-        }
+
         public void MoveNext()
         {
             if (Current != null && Current.Next != null)
@@ -102,6 +98,47 @@ namespace Music
             }
             return null; // Không tìm thấy
         }
+        public void Swap(int index1, int index2)
+        {
+            if (index1 == index2 || Head == null) return;
+
+            SongNode node1 = null, node2 = null, current = Head;
+            int count = 0;
+
+            // Tìm hai node cần hoán đổi
+            while (current != null)
+            {
+                if (count == index1) node1 = current;
+                if (count == index2) node2 = current;
+                current = current.Next;
+                count++;
+            }
+
+            // Nếu một trong hai node không tồn tại, thoát
+            if (node1 == null || node2 == null) return;
+
+            // Hoán đổi các liên kết của node1 và node2
+            if (node1.Previous != null) node1.Previous.Next = node2;
+            if (node1.Next != null) node1.Next.Previous = node2;
+            if (node2.Previous != null) node2.Previous.Next = node1;
+            if (node2.Next != null) node2.Next.Previous = node1;
+
+            // Hoán đổi Previous và Next
+            var tempPrev = node1.Previous;
+            var tempNext = node1.Next;
+            node1.Previous = node2.Previous;
+            node1.Next = node2.Next;
+            node2.Previous = tempPrev;
+            node2.Next = tempNext;
+
+            // Cập nhật Head và Tail nếu cần
+            if (Head == node1) Head = node2;
+            else if (Head == node2) Head = node1;
+
+            if (Tail == node1) Tail = node2;
+            else if (Tail == node2) Tail = node1;
+        }
+
 
 
     }
