@@ -17,7 +17,6 @@ namespace Music
     public partial class Form1 : Form
     {
         private DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
-        //private Timer timer;
 
         public Form1()
         {
@@ -28,12 +27,12 @@ namespace Music
         }
 
 
-        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-            // Điều chỉnh kích thước các thành phần nếu cần
-            listBox1.Width = splitContainer1.Panel1.Width; // Cập nhật ListBox theo Panel1
-            axWindowsMediaPlayer1.Width = splitContainer1.Panel2.Width; // Cập nhật Media Player theo Panel2
-        }
+        //private void splitcontainer1_splittermoved(object sender, splittereventargs e)
+        //{
+            // điều chỉnh kích thước các thành phần nếu cần
+         //   listbox1.width = splitcontainer1.panel1.width; // cập nhật listbox theo panel1
+           // axwindowsmediaplayer1.width = splitcontainer1.panel2.width; // cập nhật media player theo panel2
+        //}
         OpenFileDialog openFileDialog;
         string[] filePaths;
         string[] fileNames;
@@ -185,6 +184,7 @@ namespace Music
 
                 // Xóa bài hát khỏi ListBox
                 listBox1.Items.RemoveAt(selectedIndex);
+                MessageBox.Show("Đã xóa bài hát thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -238,6 +238,7 @@ namespace Music
             string temp = listBox1.Items[index1].ToString();
             listBox1.Items[index1] = listBox1.Items[index2];
             listBox1.Items[index2] = temp;
+            MessageBox.Show("Đã hoán đổi hai bài hát thành công!");
 
             // Đảm bảo rằng hai mục vẫn được chọn sau khi hoán đổi
             listBox1.SelectedIndices.Clear();

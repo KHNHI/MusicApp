@@ -117,19 +117,45 @@ namespace Music
             // Nếu một trong hai node không tồn tại, thoát
             if (node1 == null || node2 == null) return;
 
-            // Hoán đổi các liên kết của node1 và node2
-            if (node1.Previous != null) node1.Previous.Next = node2;
-            if (node1.Next != null) node1.Next.Previous = node2;
-            if (node2.Previous != null) node2.Previous.Next = node1;
-            if (node2.Next != null) node2.Next.Previous = node1;
+            // Nếu hai node là kề nhau
+            if (node1.Next == node2)
+            {
+                // Hoán đổi khi node1 đứng trước node2
+                if (node1.Previous != null) node1.Previous.Next = node2;
+                if (node2.Next != null) node2.Next.Previous = node1;
 
-            // Hoán đổi Previous và Next
-            var tempPrev = node1.Previous;
-            var tempNext = node1.Next;
-            node1.Previous = node2.Previous;
-            node1.Next = node2.Next;
-            node2.Previous = tempPrev;
-            node2.Next = tempNext;
+                node2.Previous = node1.Previous;
+                node1.Next = node2.Next;
+                node1.Previous = node2;
+                node2.Next = node1;
+            }
+            else if (node2.Next == node1)
+            {
+                // Hoán đổi khi node2 đứng trước node1
+                if (node2.Previous != null) node2.Previous.Next = node1;
+                if (node1.Next != null) node1.Next.Previous = node2;
+
+                node1.Previous = node2.Previous;
+                node2.Next = node1.Next;
+                node2.Previous = node1;
+                node1.Next = node2;
+            }
+            else
+            {
+                // Hoán đổi các liên kết của node1 và node2 nếu không kề nhau
+                if (node1.Previous != null) node1.Previous.Next = node2;
+                if (node1.Next != null) node1.Next.Previous = node2;
+                if (node2.Previous != null) node2.Previous.Next = node1;
+                if (node2.Next != null) node2.Next.Previous = node1;
+
+                // Hoán đổi Previous và Next
+                var tempPrev = node1.Previous;
+                var tempNext = node1.Next;
+                node1.Previous = node2.Previous;
+                node1.Next = node2.Next;
+                node2.Previous = tempPrev;
+                node2.Next = tempNext;
+            }
 
             // Cập nhật Head và Tail nếu cần
             if (Head == node1) Head = node2;
@@ -138,6 +164,7 @@ namespace Music
             if (Tail == node1) Tail = node2;
             else if (Tail == node2) Tail = node1;
         }
+
 
 
 

@@ -31,6 +31,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnSwap = new System.Windows.Forms.Button();
             this.btnRemoveSong = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnPlay = new System.Windows.Forms.Button();
             this.btnRandom = new System.Windows.Forms.Button();
-            this.btnSwap = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -74,9 +74,23 @@
             this.splitContainer1.SplitterDistance = 278;
             this.splitContainer1.TabIndex = 0;
             // 
+            // btnSwap
+            // 
+            this.btnSwap.BackColor = System.Drawing.Color.IndianRed;
+            this.btnSwap.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSwap.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSwap.Location = new System.Drawing.Point(0, 527);
+            this.btnSwap.Name = "btnSwap";
+            this.btnSwap.Size = new System.Drawing.Size(278, 47);
+            this.btnSwap.TabIndex = 3;
+            this.btnSwap.Text = "Swap";
+            this.btnSwap.UseVisualStyleBackColor = false;
+            this.btnSwap.Click += new System.EventHandler(this.btnSwap_Click);
+            // 
             // btnRemoveSong
             // 
             this.btnRemoveSong.BackColor = System.Drawing.Color.IndianRed;
+            this.btnRemoveSong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRemoveSong.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnRemoveSong.Location = new System.Drawing.Point(0, 574);
             this.btnRemoveSong.Name = "btnRemoveSong";
@@ -91,9 +105,10 @@
             this.listBox1.BackColor = System.Drawing.Color.DarkGreen;
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.listBox1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
+            this.listBox1.ItemHeight = 25;
             this.listBox1.Location = new System.Drawing.Point(0, 0);
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
@@ -104,6 +119,7 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.IndianRed;
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnAdd.Location = new System.Drawing.Point(0, 621);
             this.btnAdd.Name = "btnAdd";
@@ -151,7 +167,8 @@
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.btnSearch.Location = new System.Drawing.Point(298, 95);
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.Location = new System.Drawing.Point(276, 69);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(91, 33);
             this.btnSearch.TabIndex = 7;
@@ -161,7 +178,7 @@
             // 
             // txtbSong
             // 
-            this.txtbSong.Location = new System.Drawing.Point(12, 95);
+            this.txtbSong.Location = new System.Drawing.Point(3, 72);
             this.txtbSong.Name = "txtbSong";
             this.txtbSong.Size = new System.Drawing.Size(267, 26);
             this.txtbSong.TabIndex = 6;
@@ -169,6 +186,7 @@
             // btnNext
             // 
             this.btnNext.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNext.Location = new System.Drawing.Point(634, 1);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(134, 53);
@@ -180,6 +198,7 @@
             // btnPrevious
             // 
             this.btnPrevious.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.btnPrevious.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrevious.Location = new System.Drawing.Point(319, 3);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(129, 53);
@@ -193,6 +212,7 @@
             this.btnPlay.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.btnPlay.BackgroundImage = global::Music.Properties.Resources.playIcon;
             this.btnPlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPlay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPlay.Location = new System.Drawing.Point(478, 2);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(119, 53);
@@ -210,18 +230,6 @@
             this.btnRandom.Text = "Random";
             this.btnRandom.UseVisualStyleBackColor = false;
             this.btnRandom.Click += new System.EventHandler(this.btnRandom_Click);
-            // 
-            // btnSwap
-            // 
-            this.btnSwap.BackColor = System.Drawing.Color.IndianRed;
-            this.btnSwap.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSwap.Location = new System.Drawing.Point(0, 527);
-            this.btnSwap.Name = "btnSwap";
-            this.btnSwap.Size = new System.Drawing.Size(278, 47);
-            this.btnSwap.TabIndex = 3;
-            this.btnSwap.Text = "Swap";
-            this.btnSwap.UseVisualStyleBackColor = false;
-            this.btnSwap.Click += new System.EventHandler(this.btnSwap_Click);
             // 
             // Form1
             // 
