@@ -95,6 +95,22 @@ namespace Music
                 {
                     axWindowsMediaPlayer1.URL = doublyLinkedList.Current.FilePath;
                     //  textBox1.Text = doublyLinkedList.Current.FileName;
+                    // Tìm chỉ số của bài hát hiện tại trong danh sách
+                    int currentIndex = 0;
+                    var currentNode = doublyLinkedList.Head;
+
+                    while (currentNode != null)
+                    {
+                        if (currentNode == doublyLinkedList.Current)
+                            break;
+
+                        currentNode = currentNode.Next;
+                        currentIndex++;
+                    }
+
+                    // Cập nhật mục được chọn trên ListBox
+                    listBox1.SelectedIndices.Clear();
+                    listBox1.SelectedIndex = currentIndex;
                 }
             }
         }
@@ -112,6 +128,22 @@ namespace Music
                 {
                     axWindowsMediaPlayer1.URL = doublyLinkedList.Current.FilePath;
                     //  textBox1.Text = doublyLinkedList.Current.FileName;
+                    // Tìm chỉ số của bài hát hiện tại trong danh sách
+                    int currentIndex = 0;
+                    var currentNode = doublyLinkedList.Head;
+
+                    while (currentNode != null)
+                    {
+                        if (currentNode == doublyLinkedList.Current)
+                            break;
+
+                        currentNode = currentNode.Next;
+                        currentIndex++;
+                    }
+
+                    // Cập nhật mục được chọn trên ListBox
+                    listBox1.SelectedIndices.Clear();
+                    listBox1.SelectedIndex = currentIndex;
                 }
             }
         }
